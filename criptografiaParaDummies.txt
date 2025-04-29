@@ -1,0 +1,31 @@
+Obviamente el trabajo de ambas agencias era mantener sus secretos y develar los de su contraparte por lo que supongamos que una de ellas usaba el siguiente mecanismo para encriptar mensajes. Considerando únicamente las letras a - z en minúsculas, más los dígitos 0 - 9, más el guion bajo para representar el espacio en blanco, un mensaje M pasa por dos procesos:
+
+    M se transforma en M *  intercambiando cada carácter en posición impar por el carácter inmediatamente posterior
+
+    M *  se transforma en M *  *  intercambiando cada carácter por su imagen especular. Esto es, el carácter en la primera posición se intercambia por el de la última, el de la segunda por el de la penúltima y así sucesivamente. 
+
+Por ejemplo para M = "h o l a _ m u n d o"
+
+    M *  sería = "o h a l m _ n u o d"
+    M *  *  sería = "d o u n _ m l a h o" 
+
+Dada una serie de mensajes encriptados en este sistema, ¿harías un programa para desencriptarlos?
+Input
+
+La entrada comienza con una línea que contiene un valor entero positivo C que corresponde a los casos de prueba, no más de 50. Luego siguen C líneas para cada caso, cada una con hasta 2000 caracteres separados entre sí por un espacio en blanco.
+Output
+
+Por cada caso de prueba la salida debe contener una línea con el mensaje correspondiente desencriptado sin espacios en blanco.
+Example
+Input
+Copy
+
+2
+i a a f g r t o i p c r
+o i n a m _ c e n e _ e n v i 6 _ _ 8 t e e n a g
+
+Output
+Copy
+
+criptografia
+agente_86_viene_en_camino
