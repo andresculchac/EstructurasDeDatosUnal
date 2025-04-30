@@ -1,25 +1,13 @@
-# rInput = int(input())
+r = int(input())
+for _ in range(r):
+    code = input().split() 
+    n = len(code)
 
-# for i in range(rInput):
-#     fistCrypto = list(map(int, input().split(" "))) #separados por los espacios en blanco
-#     secondCrypto = list(map(int, input().split(" "))) #separados por los espacios en blanco	
-
-
-def isOddNumber(num):
-    if num % 2 != 0:
-        return True
-    else:
-        return False
     
-def DecodeCrypto(code):
-    for i in range(len(code)):
-        if isOddNumber(i):
-            change1 = code[i-1] = code[i-1] + 1
-            change2 = code[i] = code[i] - 1
-            
+    for i in range(n // 2):
+        code[i], code[n - 1 - i] = code[n - 1 - i], code[i]
+    for i in range(0, n - 1, 2):
+        code[i], code[i + 1] = code[i + 1], code[i]
+    print(''.join(code))
 
-    return code
-
-my_list = ['i', 'a', 'f', 'g', 'r', 't', 'o', 'i', 'p', 'c', 'r']
-print(DecodeCrypto(my_list))
 
