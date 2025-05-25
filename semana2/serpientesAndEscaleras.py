@@ -1,25 +1,16 @@
-def Solve():
-    CaseCount = int(input())
-    Answers = []
-    for _ in range(CaseCount):
-        TurnQty = int(input())
-        ListTurn = list(map(int, input().split()))
-        TurnCounter = 0
-        Visited = set()
-        Current = 0
-        while True:
-            Next = Current + ListTurn[Current]
-            if Next < 0 or Next >= len(ListTurn):
-                break
-            if Next in Visited:
-                break
-            TurnCounter += 1
-            Visited.add(Next)
-            Current = Next
-        Answers.append(TurnCounter)
-    for Value in Answers:
-        print(Value)
-
-
-if __name__ == "__main__":
-    Solve()
+turnos = 0
+index = {0}   #para encontrar respuestas O(1)
+listTurn = [1]
+initialTurn = 0
+while True:
+    algorithm =  initialTurn + listTurn[initialTurn]
+    turnos += 1 #contabilizamos turnos
+    #comencemos por los turnos
+    if algorithm < 0 or algorithm >= len(listTurn) or algorithm in index:
+        break
+    #rapidamente nos ponemos en la posicion de la primera lista, falta lo interactivo
+    index.add(algorithm)
+    initialTurn = algorithm
+print(turnos)    
+     
+     
