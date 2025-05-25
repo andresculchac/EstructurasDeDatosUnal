@@ -1,23 +1,18 @@
-def saltoMagico(tablero):
-    visitado=[False]*len(tablero)
-    posicion=0
-    totalSaltos=0
-
-    while 0<=posicion<len(tablero) and not visitado[posicion]:
-        visitado[posicion]=True
-        posicion+=tablero[posicion]
-        totalSaltos+=1
-    return totalSaltos
-
-
-def iniciaJuego():
-    casos=int(input())
-    respuestas=[]
-    for _ in range(casos):
-        _=int(input())
-        tablero=list(map(int,input().split()))
-        respuestas.append(str(saltoMagico(tablero)))
-    print("\n".join(respuestas))
-
-
-iniciaJuego()
+turnos = 0
+index = set()   #para encontrar respuestas O(1)
+listTurn = [3, -1, 4, -2]
+initialTurn = 0
+while True:
+    algorithm =  initialTurn + listTurn[initialTurn]
+    #comencemos por los turnos
+    if algorithm < 0 or algorithm >= len(listTurn):
+        break
+    #agregar el if cuando se repite la casilla
+    if algorithm in index:
+        break
+    turnos += 1 #contabilizamos turnos
+    #rapidamente nos ponemos en la posicion de la primera lista, falta lo interactivo
+    index.add(algorithm)
+    initialTurn = algorithm
+print(turnos)    
+     
