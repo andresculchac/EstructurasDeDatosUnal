@@ -29,3 +29,12 @@ def indicateNumbers (i,j):
 
 # for i in range(-4,0,1):
 #     print(i)
+
+#Slicin inverso de atras para adelante y es mejor que for
+D = 3
+
+test =[1,2,3,4]
+
+del test[-D:]
+
+print(test)

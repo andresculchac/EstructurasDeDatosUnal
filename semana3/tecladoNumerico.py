@@ -1,14 +1,14 @@
 numbers = []
 outputN = []
 while True:
-    longN = len(numbers) #creo que seria mejor meterlo en 
+    longN = len(numbers)
     inputN = list(map(str, input().split())) #List str = [0,9]
     firstN = inputN[0]
     if 'end' in inputN[0]:
-        break
-    else:
+            break
+    if len(firstN) == 1 :
         if  (48<=ord(firstN)<= 57):
-            numbers.append(firstN)
+                numbers.append(firstN)
         elif firstN == "M":
             i = int(inputN[1])
             j = int(inputN[2])
@@ -17,11 +17,14 @@ while True:
                 result = ''.join(str(i) for i in showN)
                 outputN.append(result)               
         elif firstN == "C":
-            numbers.pop(-1)
+            if numbers:
+                numbers.pop(-1)
         elif firstN == "D":
-            if int(inputN[1]) <= longN:
-                for i in range((-int(inputN[1])),0,1):
-                    numbers.pop(i)
+            if  1 <=int(inputN[1]) <= longN:
+                del numbers[-int(inputN[1]):]
 
 for i in outputN:
-    print(int(i))
+    print(i)
+
+#de este hpta problema aprendi que debemos agregar todos los condicionales, y ademas tener en cuenta el pop, 
+#por que si en algun momento estan vacias las listas o algo relacionado entonces queee!
