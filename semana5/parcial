@@ -1,0 +1,11 @@
+import heapq #monticulo binario
+x = tuple(map(int, input().split()))
+N = len(x)
+y = []
+for i in range(N):
+    heapq.heappush(y, x[i])
+while len(y) > 0:
+    z = heapq.heappop(y)
+    for j in range(N):
+        if x[j] == z:
+            print(j)
