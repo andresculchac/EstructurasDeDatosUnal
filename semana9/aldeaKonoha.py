@@ -1,22 +1,22 @@
-PopulationKonoha = set()
+vivos = set()
+muertos = set()
 
-while True:
+while True: 
     request = list(map(str, input().split()))
-    if request[0] == "B":
-        if request[1] in PopulationKonoha: #Error porque ya nació
-            continue
-        else:
-            PopulationKonoha.add(request[1])
-    elif request[0] == "D":
-        PopulationKonoha.discard(request[1])
-    elif request[0] == "R":
-        if request[1] in PopulationKonoha:
-            continue
-        else:
-            PopulationKonoha.add(request[1])
-    else:
+    if request[0] == "E": #primero el break
         break
+    if request[0] == "B":
+        if request[1]not in vivos and request[1] not in muertos:
+            vivos.add(request[1])
+    elif request[0] == "D":
+        if request[1]  in vivos:
+            muertos.add(request[1])
+            vivos.remove(request[1])
+    elif request[0] =="R":
+        if request[1] in muertos:
+            muertos.remove(request[1])
+            vivos.add(request[1])
 
 
-print(len(PopulationKonoha))
-print(PopulationKonoha)
+
+print(len(vivos))
